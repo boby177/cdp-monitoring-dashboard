@@ -293,10 +293,10 @@ export default function Home() {
                 <XAxis dataKey="vendor" tick={{ fill: '#6b7280' }} />
                 <YAxis allowDecimals={false} tick={{ fill: '#6b7280' }} />
                 <Tooltip />
-                <Bar dataKey="belumKIR" fill="#3B82F6" name="Belum KIR" />
-                <Bar dataKey="kadaluarsa" fill="#EF4444" name="Kadaluarsa" />
-                <Bar dataKey="segeraHabis" fill="#F59E0B" name="Segera Habis" />
-                <Bar dataKey="valid" fill="#22C55E" name="Valid" />
+                <Bar dataKey="belumKIR" fill="#3B82F6" name="Belum KIR" stroke="#0d1117"/>
+                <Bar dataKey="kadaluarsa" fill="#EF4444" name="Kadaluarsa" stroke="#0d1117"/>
+                <Bar dataKey="segeraHabis" fill="#F59E0B" name="Segera Habis" stroke="#0d1117"/>
+                <Bar dataKey="valid" fill="#22C55E" name="Valid" stroke="#0d1117"/>
                 <Legend />
               </BarChart>
             </ResponsiveContainer>
@@ -446,8 +446,7 @@ export default function Home() {
             {filteredTrucks.map((t, i) => (
               <tr
                 key={i}
-                className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-800/50 transition-colors"
-              >
+                  className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors"              >
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
                   {t["No. Polisi"] || "-"}
                 </td>

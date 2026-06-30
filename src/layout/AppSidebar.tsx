@@ -284,20 +284,20 @@ const AppSidebar: React.FC = () => {
      <div className={`py-8 flex ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"}`}>
   <Link href="/">
     {isExpanded || isHovered || isMobileOpen ? (
-  <Image
-    src="/images/logo/logo-cdp.png"
-    alt="Cikarang Dry Port"
-    width={200}
-    height={40}
-  />
-) : (
-  <Image
-    src="/images/logo/logo-cdp.png"
-    alt="Cikarang Dry Port"
-    width={32}
-    height={32}
-  />
-)}
+    <Image
+      src="/images/logo/logo-cdp.png"
+      alt="Cikarang Dry Port"
+      width={200}
+      height={40}
+    />
+  ) : (
+    <Image
+      src="/images/logo/logo-cdp-sm.png"
+      alt="Cikarang Dry Port"
+      width={32}
+      height={32}
+    />
+  )}
   </Link>
 </div>
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
