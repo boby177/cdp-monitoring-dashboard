@@ -18,6 +18,7 @@ import {
   UserCircleIcon,
 } from "../icons/index";
 import SidebarWidget from "./SidebarWidget";
+import { Truck, Users, BarChart2, Settings } from "lucide-react";
 
 type NavItem = {
   name: string;
@@ -30,66 +31,43 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    subItems: [{ name: "Overview", path: "/", pro: false }],
   },
   {
-    icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "/calendar",
-  },
-  {
-    icon: <UserCircleIcon />,
-    name: "User Profile",
-    path: "/profile",
-  },
-
-  {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
-  },
-  {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
-    name: "Pages",
-    icon: <PageIcon />,
+    icon: <Truck />,
+    name: "Fleet",
     subItems: [
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
+      { name: "Monitoring KIR", path: "/fleet/kir", pro: false },
+      { name: "Data Armada", path: "/fleet/armada", pro: false },
+      { name: "Jadwal Servis", path: "/fleet/servis", pro: false },
+      { name: "Riwayat KIR", path: "/fleet/riwayat", pro: false },
+    ],
+  },
+  {
+    icon: <Users />,
+    name: "HR",
+    subItems: [
+      { name: "Data Karyawan", path: "/hr/karyawan", pro: false },
+      { name: "Monitoring Kontrak", path: "/hr/kontrak", pro: false },
+      { name: "Absensi", path: "/hr/absensi", pro: false },
     ],
   },
 ];
 
 const othersItems: NavItem[] = [
   {
-    icon: <PieChartIcon />,
-    name: "Charts",
+    icon: <BarChart2 />,
+    name: "Laporan",
     subItems: [
-      { name: "Line Chart", path: "/line-chart", pro: false },
-      { name: "Bar Chart", path: "/bar-chart", pro: false },
+      { name: "Export Data", path: "/laporan/export", pro: false },
+      { name: "Rekap Bulanan", path: "/laporan/rekap", pro: false },
     ],
   },
   {
-    icon: <BoxCubeIcon />,
-    name: "UI Elements",
+    icon: <Settings />,
+    name: "Pengaturan",
     subItems: [
-      { name: "Alerts", path: "/alerts", pro: false },
-      { name: "Avatar", path: "/avatars", pro: false },
-      { name: "Badge", path: "/badge", pro: false },
-      { name: "Buttons", path: "/buttons", pro: false },
-      { name: "Images", path: "/images", pro: false },
-      { name: "Videos", path: "/videos", pro: false },
-    ],
-  },
-  {
-    icon: <PlugInIcon />,
-    name: "Authentication",
-    subItems: [
-      { name: "Sign In", path: "/signin", pro: false },
-      { name: "Sign Up", path: "/signup", pro: false },
+      { name: "Manajemen User", path: "/pengaturan/user", pro: false },
     ],
   },
 ];
