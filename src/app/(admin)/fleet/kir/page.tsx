@@ -259,7 +259,7 @@ export default function Home() {
                   paddingAngle={3}
                   isAnimationActive={false}
                   onClick={(data) => setStatusFilter(
-                  statusFilter === data.name ? '' : data.name
+                  statusFilter === data.name ? '' : (data.name ?? '')
                 )}
                 style={{ cursor: 'pointer' }}
                 >
@@ -302,21 +302,36 @@ export default function Home() {
                   labelFormatter={(label) => `Vendor: ${label}`}
                 />
                 <Bar dataKey="belumKIR" fill="#3B82F6" name="Belum KIR" stroke="#0d1117"
-                  onClick={(data) => setVendorFilter(
-                    vendorFilter === data.vendor ? '' : data.vendor
-                  )} style={{ cursor: 'pointer' }} />
+                  onClick={(data) => {
+                    const vendorName = data.payload?.vendor ?? '';
+                    setVendorFilter(vendorFilter === vendorName ? '' : vendorName);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                />
+
                 <Bar dataKey="kadaluarsa" fill="#EF4444" name="Kadaluarsa" stroke="#0d1117"
-                  onClick={(data) => setVendorFilter(
-                    vendorFilter === data.vendor ? '' : data.vendor
-                  )} style={{ cursor: 'pointer' }} />
+                  onClick={(data) => {
+                    const vendorName = data.payload?.vendor ?? '';
+                    setVendorFilter(vendorFilter === vendorName ? '' : vendorName);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                />
+
                 <Bar dataKey="segeraHabis" fill="#F59E0B" name="Segera Habis" stroke="#0d1117"
-                  onClick={(data) => setVendorFilter(
-                    vendorFilter === data.vendor ? '' : data.vendor
-                  )} style={{ cursor: 'pointer' }} />
+                  onClick={(data) => {
+                    const vendorName = data.payload?.vendor ?? '';
+                    setVendorFilter(vendorFilter === vendorName ? '' : vendorName);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                />
+
                 <Bar dataKey="valid" fill="#22C55E" name="Valid" stroke="#0d1117"
-                  onClick={(data) => setVendorFilter(
-                    vendorFilter === data.vendor ? '' : data.vendor
-                  )} style={{ cursor: 'pointer' }} />
+                  onClick={(data) => {
+                    const vendorName = data.payload?.vendor ?? '';
+                    setVendorFilter(vendorFilter === vendorName ? '' : vendorName);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                />
                 <Legend />
               </BarChart>
             </ResponsiveContainer>
