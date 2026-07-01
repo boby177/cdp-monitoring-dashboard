@@ -25,6 +25,7 @@ import {
 
 export default function Home() {
   const [trucks, setTrucks] = useState([]);
+  const [vendorFilter, setVendorFilter] = useState('');
 
   const [sortKey, setSortKey] = useState("");
   const [search, setSearch] = useState("");
@@ -101,20 +102,19 @@ export default function Home() {
       setSortKey(key);
       setSortDir("asc");
     }
-  };
+};
 
   const filteredTrucks = useMemo(() => {
     let result = sortedTrucks;
-    if (statusFilter)
-      result = result.filter((t) => t["Status"] === statusFilter);
-    if (search)
-      result = result.filter((t) =>
-        Object.values(t).some((val) =>
-          String(val).toLowerCase().includes(search.toLowerCase()),
-        ),
-      );
+    if (statusFilter) result = result.filter(t => t['Status'] === statusFilter);
+    if (vendorFilter) result = result.filter(t => t['Pemilik'] === vendorFilter);
+    if (search) result = result.filter(t =>
+      Object.values(t).some(val =>
+        String(val).toLowerCase().includes(search.toLowerCase())
+      )
+    );
     return result;
-  }, [sortedTrucks, search, statusFilter]);
+  }, [sortedTrucks, search, statusFilter, vendorFilter]);
 
   const renderLabel = useCallback(
     ({ cx, cy, midAngle, innerRadius, outerRadius, percent }: any) => {
@@ -258,7 +258,12 @@ export default function Home() {
                   labelLine={false}
                   paddingAngle={3}
                   isAnimationActive={false}
+                  onClick={(data) => setStatusFilter(
+                  statusFilter === data.name ? '' : data.name
+                )}
+                style={{ cursor: 'pointer' }}
                 >
+                  <Tooltip />
                   <Cell fill="#3B82F6" stroke="#0d1117" />
                   <Cell fill="#EF4444" stroke="#0d1117" />
                   <Cell fill="#F59E0B" stroke="#0d1117" />
@@ -292,11 +297,26 @@ export default function Home() {
                 <CartesianGrid stroke="rgba(0,0,0,0.1)" />
                 <XAxis dataKey="vendor" tick={{ fill: '#6b7280' }} />
                 <YAxis allowDecimals={false} tick={{ fill: '#6b7280' }} />
-                <Tooltip />
-                <Bar dataKey="belumKIR" fill="#3B82F6" name="Belum KIR" stroke="#0d1117"/>
-                <Bar dataKey="kadaluarsa" fill="#EF4444" name="Kadaluarsa" stroke="#0d1117"/>
-                <Bar dataKey="segeraHabis" fill="#F59E0B" name="Segera Habis" stroke="#0d1117"/>
-                <Bar dataKey="valid" fill="#22C55E" name="Valid" stroke="#0d1117"/>
+                <Tooltip
+                  formatter={(value, name) => [value, name]}
+                  labelFormatter={(label) => `Vendor: ${label}`}
+                />
+                <Bar dataKey="belumKIR" fill="#3B82F6" name="Belum KIR" stroke="#0d1117"
+                  onClick={(data) => setVendorFilter(
+                    vendorFilter === data.vendor ? '' : data.vendor
+                  )} style={{ cursor: 'pointer' }} />
+                <Bar dataKey="kadaluarsa" fill="#EF4444" name="Kadaluarsa" stroke="#0d1117"
+                  onClick={(data) => setVendorFilter(
+                    vendorFilter === data.vendor ? '' : data.vendor
+                  )} style={{ cursor: 'pointer' }} />
+                <Bar dataKey="segeraHabis" fill="#F59E0B" name="Segera Habis" stroke="#0d1117"
+                  onClick={(data) => setVendorFilter(
+                    vendorFilter === data.vendor ? '' : data.vendor
+                  )} style={{ cursor: 'pointer' }} />
+                <Bar dataKey="valid" fill="#22C55E" name="Valid" stroke="#0d1117"
+                  onClick={(data) => setVendorFilter(
+                    vendorFilter === data.vendor ? '' : data.vendor
+                  )} style={{ cursor: 'pointer' }} />
                 <Legend />
               </BarChart>
             </ResponsiveContainer>
@@ -478,7 +498,7 @@ export default function Home() {
           </tbody>
         </table>
         <div className="flex justify-between items-center px-4 py-3 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500 dark:text-gray-400">
-          <span>© 2026 Boby Maulana — CIKARANG DRY PORT</span>
+          <span>© 2026 CDP IT Team — CIKARANG DRY PORT</span>
           <span>
             Diperbarui:{" "}
             {new Date().toLocaleDateString("id-ID", {
