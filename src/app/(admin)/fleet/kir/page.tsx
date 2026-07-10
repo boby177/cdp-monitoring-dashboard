@@ -171,75 +171,8 @@ export default function Home() {
         </span>
       </div>
 
-      {/* Card Data */}
       <div className="mb-6">
-        <div className="grid grid-cols-4 gap-4">
-          <div
-            className="bg-blue-100 dark:bg-[#1B2A4A] rounded-xl p-4 border border-blue-200 dark:border-[#2E4A7A] cursor-pointer"
-            onClick={() =>
-              setStatusFilter(statusFilter === "Belum KIR" ? "" : "Belum KIR")
-            }
-          >
-            <p className="text-sm text-blue-600 dark:text-[#5B9BD5] flex items-center gap-2">
-              <XCircle className="w-4 h-4" /> Belum KIR
-            </p>
-            <p className="text-3xl font-bold text-blue-600 dark:text-[#5B9BD5]">
-              {circleChartData[0].value}
-            </p>
-            <p className="text-sm text-blue-600 dark:text-[#5B9BD5]">unit</p>
-          </div>
-
-          <div
-            className="bg-red-100 dark:bg-[#4A1B1B] rounded-xl p-4 border border-red-200 dark:border-[#7A2E2E] cursor-pointer"
-            onClick={() =>
-              setStatusFilter(statusFilter === "Kadaluarsa" ? "" : "Kadaluarsa")
-            }
-          >
-            <p className="text-sm text-red-600 dark:text-[#D55B5B] flex items-center gap-2">
-              <AlertTriangle className="w-4 h-4" /> Kadaluarsa
-            </p>
-            <p className="text-3xl font-bold text-red-600 dark:text-[#D55B5B]">
-              {circleChartData[1].value}
-            </p>
-            <p className="text-sm text-red-600 dark:text-[#D55B5B]">unit</p>
-          </div>
-
-          <div
-            className="bg-yellow-100 dark:bg-[#4A3B1B] rounded-xl p-4 border border-yellow-200 dark:border-[#7A5E2E] cursor-pointer"
-            onClick={() =>
-              setStatusFilter(
-                statusFilter === "Segera Habis" ? "" : "Segera Habis",
-              )
-            }
-          >
-            <p className="text-sm text-yellow-600 dark:text-[#D5A55B] flex items-center gap-2">
-              <Clock className="w-4 h-4" /> Segera Habis
-            </p>
-            <p className="text-3xl font-bold text-yellow-600 dark:text-[#D5A55B]">
-              {circleChartData[2].value}
-            </p>
-            <p className="text-sm text-yellow-600 dark:text-[#D5A55B]">unit</p>
-          </div>
-
-          <div
-            className="bg-green-100 dark:bg-[#1B4A2A] rounded-xl p-4 border border-green-200 dark:border-[#2E7A4A] cursor-pointer"
-            onClick={() =>
-              setStatusFilter(statusFilter === "Valid" ? "" : "Valid")
-            }
-          >
-            <p className="text-sm text-green-600 dark:text-[#5BD57A] flex items-center gap-2">
-              <CheckCircle className="w-4 h-4" /> Valid
-            </p>
-            <p className="text-3xl font-bold text-green-600 dark:text-[#5BD57A]">
-              {circleChartData[3].value}
-            </p>
-            <p className="text-sm text-green-600 dark:text-[#5BD57A]">unit</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <div className="grid grid-cols-[1fr_2fr] gap-4">
+        <div className="grid grid-cols-[1fr_2fr_0.8fr] gap-4">
           {/* Pie Chart Data */}
           <div className="bg-white dark:bg-gray-800 rounded-xl p-4">
             <div className="border-b border-gray-200 dark:border-gray-800 pb-3 mb-4">
@@ -336,7 +269,72 @@ export default function Home() {
               </BarChart>
             </ResponsiveContainer>
           </div>
-        </div>
+
+          {/* Card charts data */}
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-4 grid grid-cols-1 gap-4">
+            <div
+              className="bg-blue-100 dark:bg-[#1B2A4A] rounded-xl p-4 border border-blue-200 dark:border-[#2E4A7A] cursor-pointer"
+              onClick={() =>
+                setStatusFilter(statusFilter === "Belum KIR" ? "" : "Belum KIR")
+              }
+            >
+              <p className="text-sm text-blue-600 dark:text-[#5B9BD5] flex items-center gap-2">
+                <XCircle className="w-4 h-4" /> Belum KIR
+              </p>
+              <p className="text-3xl font-bold text-blue-600 dark:text-[#5B9BD5]">
+                {circleChartData[0].value}
+              </p>
+              <p className="text-sm text-blue-600 dark:text-[#5B9BD5]">unit</p>
+            </div>
+
+            <div
+              className="bg-red-100 dark:bg-[#4A1B1B] rounded-xl p-4 border border-red-200 dark:border-[#7A2E2E] cursor-pointer"
+              onClick={() =>
+                setStatusFilter(statusFilter === "Kadaluarsa" ? "" : "Kadaluarsa")
+              }
+            >
+              <p className="text-sm text-red-600 dark:text-[#D55B5B] flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4" /> Kadaluarsa
+              </p>
+              <p className="text-3xl font-bold text-red-600 dark:text-[#D55B5B]">
+                {circleChartData[1].value}
+              </p>
+              <p className="text-sm text-red-600 dark:text-[#D55B5B]">unit</p>
+            </div>
+
+            <div
+              className="bg-yellow-100 dark:bg-[#4A3B1B] rounded-xl p-4 border border-yellow-200 dark:border-[#7A5E2E] cursor-pointer"
+              onClick={() =>
+                setStatusFilter(
+                  statusFilter === "Segera Habis" ? "" : "Segera Habis",
+                )
+              }
+            >
+              <p className="text-sm text-yellow-600 dark:text-[#D5A55B] flex items-center gap-2">
+                <Clock className="w-4 h-4" /> Segera Habis
+              </p>
+              <p className="text-3xl font-bold text-yellow-600 dark:text-[#D5A55B]">
+                {circleChartData[2].value}
+              </p>
+              <p className="text-sm text-yellow-600 dark:text-[#D5A55B]">unit</p>
+            </div>
+
+            <div
+              className="bg-green-100 dark:bg-[#1B4A2A] rounded-xl p-4 border border-green-200 dark:border-[#2E7A4A] cursor-pointer"
+              onClick={() =>
+                setStatusFilter(statusFilter === "Valid" ? "" : "Valid")
+              }
+            >
+              <p className="text-sm text-green-600 dark:text-[#5BD57A] flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" /> Valid
+              </p>
+              <p className="text-3xl font-bold text-green-600 dark:text-[#5BD57A]">
+                {circleChartData[3].value}
+              </p>
+              <p className="text-sm text-green-600 dark:text-[#5BD57A]">unit</p>
+            </div>
+          </div>
+          </div>
       </div>
 
       {/* Table Data */}
