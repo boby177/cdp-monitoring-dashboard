@@ -5,20 +5,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
-  BoxCubeIcon,
-  CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
-  ListIcon,
-  PageIcon,
-  PieChartIcon,
-  PlugInIcon,
-  TableIcon,
   UserCircleIcon,
 } from "../icons/index";
-import SidebarWidget from "./SidebarWidget";
-import { Truck, Users, BarChart2, Settings } from "lucide-react";
+import { Truck, BarChart2, Settings, BarChart3 } from "lucide-react";
 
 type NavItem = {
   name: string;
@@ -44,12 +36,10 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    icon: <Users />,
-    name: "HR",
+    icon: <BarChart3  />,
+    name: "Power BI",
     subItems: [
-      { name: "Data Karyawan", path: "/hr/karyawan", pro: false },
-      { name: "Monitoring Kontrak", path: "/hr/kontrak", pro: false },
-      { name: "Absensi", path: "/hr/absensi", pro: false },
+      { name: "Report JOT", path: "/power-bi/jot", pro: false },
     ],
   },
 ];
