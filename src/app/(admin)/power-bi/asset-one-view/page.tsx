@@ -1,12 +1,12 @@
-import PowerBIReportJot from "@/components/power-bi/report-jot";
+import PowerBIAssetOneView from "@/components/power-bi/asset-one-view";
 
 export default function MonitoringPage() {
   return (
     <div className="p-6">
       <h1 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
-        Report JOT Power BI
+        Asset One View Power BI
       </h1>
-      <PowerBIReportJot />
+      <PowerBIAssetOneView />
     </div>
   );
 }

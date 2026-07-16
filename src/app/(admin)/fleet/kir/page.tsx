@@ -70,9 +70,9 @@ export default function Home() {
   );
 
   const barChartData = useMemo(() => {
-    const vendors = [...new Set(trucks.map((t) => t["Pemilik"]))];
+    const vendors = [...new Set(trucks.map((t) => t["Vendor"]))];
     return vendors.map((vendor) => {
-      const vendorTrucks = trucks.filter((t) => t["Pemilik"] === vendor);
+      const vendorTrucks = trucks.filter((t) => t["Vendor"] === vendor);
       return {
         vendor,
         belumKIR: vendorTrucks.filter((t) => t["Status"] === "Belum KIR")
@@ -107,7 +107,7 @@ export default function Home() {
   const filteredTrucks = useMemo(() => {
     let result = sortedTrucks;
     if (statusFilter) result = result.filter(t => t['Status'] === statusFilter);
-    if (vendorFilter) result = result.filter(t => t['Pemilik'] === vendorFilter);
+    if (vendorFilter) result = result.filter(t => t['Vendor'] === vendorFilter);
     if (search) result = result.filter(t =>
       Object.values(t).some(val =>
         String(val).toLowerCase().includes(search.toLowerCase())
@@ -347,7 +347,7 @@ export default function Home() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-gray-400" />
             <input
               type="text"
-              placeholder="Cari No. Pol, pemilik..."
+              placeholder="Cari No. Pol, Vendor..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white text-sm pl-9 pr-3 py-1.5 rounded-lg border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-yellow-500 w-64"
@@ -359,12 +359,12 @@ export default function Home() {
             <tr className="border-b border-gray-200 dark:border-gray-800 text-gray-500 dark:text-gray-400 uppercase text-xs tracking-wider">
               <th
                 className="px-4 py-3 text-left cursor-pointer"
-                onClick={() => handleSort("No. Polisi")}
+                onClick={() => handleSort("Nomor Polisi")}
               >
                 <span className="flex items-center gap-1">
-                  No. Polisi
+                  Nomor Polisi
                   <span className="text-grey-500">
-                    {sortKey === "No. Polisi"
+                    {sortKey === "Nomor Polisi"
                       ? sortDir === "asc"
                         ? "↑"
                         : "↓"
@@ -374,12 +374,12 @@ export default function Home() {
               </th>
               <th
                 className="px-4 py-3 text-left cursor-pointer"
-                onClick={() => handleSort("Jenis Truk")}
+                onClick={() => handleSort("Merk Kendaraan")}
               >
                 <span className="flex items-center gap-1">
-                  Jenis Truk
+                  Merk Kendaraan
                   <span className="text-grey-500">
-                    {sortKey === "Jenis Truk"
+                    {sortKey === "Merk Kendaraan"
                       ? sortDir === "asc"
                         ? "↑"
                         : "↓"
@@ -389,12 +389,12 @@ export default function Home() {
               </th>
               <th
                 className="px-4 py-3 text-left cursor-pointer"
-                onClick={() => handleSort("Pemilik")}
+                onClick={() => handleSort("Vendor")}
               >
                 <span className="flex items-center gap-1">
-                  Pemilik
+                  Vendor
                   <span className="text-grey-500">
-                    {sortKey === "Pemilik"
+                    {sortKey === "Vendor"
                       ? sortDir === "asc"
                         ? "↑"
                         : "↓"
@@ -481,13 +481,13 @@ export default function Home() {
                 key={i}
                   className="border-b border-gray-200 dark:border-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-colors"              >
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
-                  {t["No. Polisi"] || "-"}
+                  {t["Nomor Polisi"] || "-"}
                 </td>
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
-                  {t["Jenis Truk"] || "-"}
+                  {t["Merk Kendaraan"] || "-"}
                 </td>
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">
-                  {t["Pemilik"] || "-"}
+                  {t["Vendor"] || "-"}
                 </td>
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">{t["Rute"] || "-"}</td>
                 <td className="px-4 py-3 text-gray-600 dark:text-gray-300">

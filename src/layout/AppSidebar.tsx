@@ -40,6 +40,7 @@ const navItems: NavItem[] = [
     name: "Power BI",
     subItems: [
       { name: "Report JOT", path: "/power-bi/jot", pro: false },
+      { name: "Asset One View", path: "/power-bi/asset-one-view", pro: false },
     ],
   },
 ];
