@@ -8,7 +8,6 @@ import {
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
-  UserCircleIcon,
 } from "../icons/index";
 import { Truck, BarChart2, Settings, BarChart3 } from "lucide-react";
 
@@ -27,12 +26,10 @@ const navItems: NavItem[] = [
   },
   {
     icon: <Truck />,
-    name: "Fleet",
+    name: "QHSE",
     subItems: [
-      { name: "Monitoring KIR", path: "/fleet/kir", pro: false },
-      { name: "Data Armada", path: "/fleet/armada", pro: false },
-      { name: "Jadwal Servis", path: "/fleet/servis", pro: false },
-      { name: "Riwayat KIR", path: "/fleet/riwayat", pro: false },
+      { name: "Trucking Management Document", path: "/qhse/trucking-management-doc", pro: false },
+      { name: "Monitoring KIR", path: "/qhse/kir", pro: false },
     ],
   },
   {
