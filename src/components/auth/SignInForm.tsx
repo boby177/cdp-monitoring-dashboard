@@ -78,7 +78,7 @@ export default function SignInForm() {
                   </Label>
                   <Input
                     placeholder="Enter your username"
-                    value={userId}
+                    defaultValue={userId}
                     onChange={(e) => setUserId(e.target.value)}
                   />
                 </div>
@@ -90,7 +90,7 @@ export default function SignInForm() {
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
-                      value={password}
+                      defaultValue={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                     <span
