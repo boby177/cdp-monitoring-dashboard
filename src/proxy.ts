@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const token = request.cookies.get('session_token')?.value;
+  console.log('PROXY CHECK:', request.nextUrl.pathname, 'TOKEN EXISTS:', !!token);
+  
   const isLoginPage = request.nextUrl.pathname === '/signin';
 
   if (!token) {
@@ -16,7 +18,11 @@ export async function middleware(request: NextRequest) {
     body: new URLSearchParams({ token }),
   });
 
+  console.log('VERIFY RESPONSE STATUS:', verifyResponse.status);
+
   if (!verifyResponse.ok) {
+    const errorBody = await verifyResponse.text();
+    console.log('VERIFY FAILED BODY:', errorBody);
     const response = NextResponse.redirect(new URL('/signin', request.url));
     response.cookies.delete('session_token');
     response.cookies.delete('user_name');
@@ -27,5 +33,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:png|jpg|jpeg|svg|gif|webp|ico)$).*)',
+  ],
 };
