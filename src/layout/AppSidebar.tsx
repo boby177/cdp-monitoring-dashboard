@@ -9,7 +9,7 @@ import {
   GridIcon,
   HorizontaLDots,
 } from "../icons/index";
-import { Truck, BarChart2, Settings, BarChart3 } from "lucide-react";
+import { Truck, BarChart2, Settings, BarChart3, ShieldCheck } from "lucide-react";
 
 type NavItem = {
   name: string;
@@ -25,10 +25,11 @@ const navItems: NavItem[] = [
     subItems: [{ name: "Overview", path: "/", pro: false }],
   },
   {
-    icon: <Truck />,
+    icon: <ShieldCheck  />,
     name: "QHSE",
     subItems: [
       { name: "Trucking Management Document", path: "/qhse/trucking-management-doc", pro: false },
+      { name: "Asset One View", path: "/qhse/asset-one-view", pro: false },
       { name: "Monitoring KIR", path: "/qhse/kir", pro: false },
     ],
   },
@@ -37,7 +38,6 @@ const navItems: NavItem[] = [
     name: "Power BI",
     subItems: [
       { name: "Report JOT", path: "/power-bi/jot", pro: false },
-      { name: "Asset One View", path: "/power-bi/asset-one-view", pro: false },
     ],
   },
 ];
