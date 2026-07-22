@@ -9,7 +9,7 @@ import {
   GridIcon,
   HorizontaLDots,
 } from "../icons/index";
-import { Truck, BarChart2, Settings, BarChart3, ShieldCheck } from "lucide-react";
+import { Truck, BarChart2, Settings, BarChart3, ShieldCheck, Users } from "lucide-react";
 
 type NavItem = {
   name: string;
@@ -19,46 +19,52 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  {
-    icon: <GridIcon />,
-    name: "Dashboard",
-    subItems: [{ name: "Overview", path: "/", pro: false }],
-  },
+  // {
+  //   icon: <GridIcon />,
+  //   name: "Dashboard",
+  //   subItems: [{ name: "Overview", path: "/", pro: false }],
+  // },
   {
     icon: <ShieldCheck  />,
     name: "QHSE",
     subItems: [
       { name: "Trucking Management Document", path: "/qhse/trucking-management-doc", pro: false },
       { name: "Fit to Work", path: "/qhse/fit-to-work", pro: false },
-      { name: "Asset One View", path: "/qhse/asset-one-view", pro: false },
-      { name: "Monitoring KIR", path: "/qhse/kir", pro: false },
+      // { name: "Monitoring KIR", path: "/qhse/kir", pro: false },
     ],
   },
   {
-    icon: <BarChart3  />,
-    name: "Power BI",
+    icon: <Users />,
+    name: "HRGA",
     subItems: [
-      { name: "Report JOT", path: "/power-bi/jot", pro: false },
+      { name: "Asset One View", path: "/hrga/asset-one-view", pro: false },
+    ],
+  },
+  {
+    icon: <Truck />,
+    name: "Transport",
+    subItems: [
+      { name: "Report Fix cost", path: "/transport/cost", pro: false },
     ],
   },
 ];
 
 const othersItems: NavItem[] = [
-  {
-    icon: <BarChart2 />,
-    name: "Laporan",
-    subItems: [
-      { name: "Export Data", path: "/laporan/export", pro: false },
-      { name: "Rekap Bulanan", path: "/laporan/rekap", pro: false },
-    ],
-  },
-  {
-    icon: <Settings />,
-    name: "Pengaturan",
-    subItems: [
-      { name: "Manajemen User", path: "/pengaturan/user", pro: false },
-    ],
-  },
+  // {
+  //   icon: <BarChart2 />,
+  //   name: "Laporan",
+  //   subItems: [
+  //     { name: "Export Data", path: "/laporan/export", pro: false },
+  //     { name: "Rekap Bulanan", path: "/laporan/rekap", pro: false },
+  //   ],
+  // },
+  // {
+  //   icon: <Settings />,
+  //   name: "Pengaturan",
+  //   subItems: [
+  //     { name: "Manajemen User", path: "/pengaturan/user", pro: false },
+  //   ],
+  // },
 ];
 
 const AppSidebar: React.FC = () => {
