@@ -29,6 +29,7 @@ const navItems: NavItem[] = [
     name: "QHSE",
     subItems: [
       { name: "Trucking Management Document", path: "/qhse/trucking-management-doc", pro: false },
+      { name: "Fit to Work", path: "/qhse/fit-to-work", pro: false },
       { name: "Asset One View", path: "/qhse/asset-one-view", pro: false },
       { name: "Monitoring KIR", path: "/qhse/kir", pro: false },
     ],
