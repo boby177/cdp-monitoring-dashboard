@@ -1,13 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
 
 export default function UserDropdown() {
-  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState("User");
 
@@ -28,12 +26,11 @@ export default function UserDropdown() {
     setIsOpen(false);
   }
 
-  async function handleLogout() {
-    closeDropdown();
-    await fetch("/api/auth/logout", { method: "POST" });
-    router.push("/signin");
-    router.refresh();
-  }
+async function handleLogout() {
+  closeDropdown();
+  await fetch("/api/auth/logout", { method: "POST" });
+  window.location.href = "/signin";
+}
 
   return (
     <div className="relative">

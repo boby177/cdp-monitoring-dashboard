@@ -36,7 +36,7 @@ export default function SignInForm() {
         body: JSON.stringify({ user_id: userId, password }),
       });
 
-      const data = await res.json();
+const data = await res.json();
 
       if (!res.ok) {
         setError(data.error || "Login failed. Please try again.");
@@ -44,8 +44,7 @@ export default function SignInForm() {
         return;
       }
 
-      router.push("/");
-      router.refresh();
+      window.location.href = "/";
     } catch (err) {
       setError("Something went wrong. Please try again.");
       setIsLoading(false);

@@ -36,9 +36,6 @@ export default function AuthLayout({
                   height={140}
                 />
               </Link>
-              <p className="text-center text-gray-200 dark:text-white/60 max-w-xs text-lg">
-                Monitoring Operations <br /> Dashboard
-              </p>
             </div>
           </div>
           <div className="fixed bottom-6 right-6 z-50 hidden sm:block">
